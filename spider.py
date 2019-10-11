@@ -43,7 +43,6 @@ class Spider() :
                     response = self.request(pageInfoUrl, refer={'Referer': self.start_url})
                     selector = json.loads(response.text, encoding='utf-8')
                     videoList = selector['data']['vlist']
-                    #print(videoList)
                     for video in videoList :
                         yield from self.parseByAv(
                             'https://www.bilibili.com/video/av{}'.format(video['aid'])
@@ -103,12 +102,3 @@ class Spider() :
             headers=headers
             , verify=False
         )
-        
-
-if __name__ == '__main__' :
-
-    spider = Spider('up', 20351272, 0)#67279071)
-    for i in spider.parse() :
-        if i is not None :
-            del i['pageInfo']
-        pprint(i)
