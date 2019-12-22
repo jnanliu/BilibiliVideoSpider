@@ -1,0 +1,165 @@
+QPushButton#searchPushButton {
+    background: #FF80AB;
+    color: white;
+    border-radius: 4px;
+}
+
+QPushButton#searchPushButton:hover {
+    color: white;
+    background: rgb(243, 26, 98);
+}
+
+QPushButton#savePicPushButton {
+    background: #FF80AB;
+    color: white;
+    border-radius: 4px;
+}
+
+QPushButton#savePicPushButton:hover {
+    color: white;
+    background: rgb(243, 26, 98);
+}
+
+QPushButton#downloadPushButton {
+    background: #FF80AB;
+    color: white;
+    border-radius: 4px;
+}
+
+QPushButton#downloadPushButton:hover {
+    color: white;
+    background: rgb(243, 26, 98);
+}
+
+QPushButton#searchPushButton_2 {
+    background: #FF80AB;
+    color: white;
+    border-radius: 4px;
+}
+
+QPushButton#searchPushButton_2:hover {
+    color: white;
+    background: rgb(243, 26, 98);
+}
+
+QLineEdit#AVLineEdit {
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+
+QLineEdit#uidLineEdit {
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+
+QPushButton#closePushButton {
+    background: #F76677;
+    border-radius: 6px;
+}
+
+QPushButton#closePushButton:hover {
+    background: red;
+}
+
+QPushButton#smallerPushButton {
+    background: #6DDF6D;
+    border-radius: 6px;
+}
+
+QPushButton#smallerPushButton:hover {
+    background: green;
+}
+
+QPushButton#AVPpushButton {
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+QPushButton#AVPpushButton:hover {
+    border-left:4px solid rgb(243, 239, 17);
+    font-weight:700;
+}
+
+QPushButton#UPPushButton {
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+QPushButton#UPPushButton:hover {
+    border-left:4px solid rgb(243, 100, 17);
+    font-weight:700;
+}
+
+QPushButton#AboutPushButton {
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+QPushButton#AboutPushButton:hover {
+    border-left: 4px solid rgb(131, 7, 168);
+    font-weight: 700;
+}
+
+QLineEdit{
+    border: none;
+    color: black;
+    width:300px;
+    border-radius:11px;
+    padding:2px 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+}
+
+QTextEdit {
+    border: none;
+    color: black;
+    width:300px;
+    border-radius:11px;
+    padding:2px 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+}
+
+QLabel{
+    color: black;
+    font-size: 11px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+QLabel#upFaceLabel {
+    border-radius: 40px;
+}
+
+QTextEdit {
+    font-size: 11px;
+}
+
+QWidget#leftWidget {
+    background-color: #FF80AB;
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    border-left:1px solid gray;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+}
+
+QWidget#rightWidget {
+    background-image: url("E:/Project/Python/Spider/BilibiliVideoSpider/img/background.jpg");
+    /*background-color: white;*/
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    border-right:1px solid gray;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}

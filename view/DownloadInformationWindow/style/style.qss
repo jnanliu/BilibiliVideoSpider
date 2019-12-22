@@ -1,0 +1,70 @@
+QPushButton#closePushButton {
+    background: #F76677;
+    border-radius: 7px;
+}
+
+QPushButton#closePushButton:hover {
+    background: red;
+}
+
+QPushButton#smallerPushButton {
+    background: #6DDF6D;
+    border-radius: 7px;
+}
+
+QPushButton#smallerPushButton:hover {
+    background: green;
+}
+
+QPushButton#filePushButton{
+    background: rgb(206, 205, 203);
+    border-radius: 2px;
+}
+
+QPushButton#filePushButton:hover{
+    background: grey;
+}
+
+QPushButton#downloadPushButton {
+    background: rgb(6, 120, 250);
+    color: white;
+    border-radius: 4px;
+}
+
+QPushButton#downloadPushButton:hover {
+    background: rgb(17, 194, 218);
+    color: white;
+}
+
+QLabel {
+    font-size: 10px;
+}
+
+QLabel#diskSizeLabel {
+    font-size: 10px;
+    color: rgb(6, 120, 250);
+}
+
+QListView, QListWidget {
+    border-top: 2px solid rgb(17, 194, 218);
+    border-bottom: 2px solid rgb(17, 194, 218);
+    border-left: 2px solid rgb(17, 194, 218);
+    border-right: 2px solid rgb(17, 194, 218);
+    border-radius: 5px;
+}
+
+QListWidget#downloadListWidget {
+    background-image: url("E:/Project/Python/Spider/BilibiliVideoSpider/img/background.jpg");
+}
+
+QWidget#centralwidget {
+    background-color: white;
+    border-top:1px solid gray;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

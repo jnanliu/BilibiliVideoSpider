@@ -10,7 +10,10 @@ from lxml import etree
 from tqdm import tqdm
 from pprint import pprint
 
-from settings import HEADERS, USERA_GENTS, ITEM
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+from .settings import HEADERS, USERA_GENTS, ITEM
 
 class Spider() :
 
@@ -34,19 +37,33 @@ class Spider() :
             selector = json.loads(response.text,encoding='utf-8')
             totalPage = selector['data']['count']
             if totalPage == 0 :
-                print("这个up主还没有过发布视频...")
+                #print("这个up主还没有发布过视频...")
                 yield None
             else :
-                for i in range(1, totalPage + 1) :
+                upInfoUrl = 'https://api.bilibili.com/x/space/acc/info?mid={}&jsonp=jsonp'.format(self.number)
+                response = self.request(upInfoUrl, refer={'Referer': self.start_url})
+                selector = json.loads(response.text, encoding='utf-8')
+                upName = selector['data']['name']
+                upFace = selector['data']['face']
+                upSign = selector['data']['sign']
+                for i in range(1, int(totalPage / 30 + 0.5) + 1) :
                     pageInfoUrl = 'https://space.bilibili.com/ajax/member/getSubmitVideos' +\
                         '?mid={}&pagesize=30&tid=0&page={}&keyword=&order=pubdate'.format(self.number, i)
                     response = self.request(pageInfoUrl, refer={'Referer': self.start_url})
                     selector = json.loads(response.text, encoding='utf-8')
                     videoList = selector['data']['vlist']
-                    for video in videoList :
-                        yield from self.parseByAv(
-                            'https://www.bilibili.com/video/av{}'.format(video['aid'])
-                        )
+                    for idx, video in enumerate(videoList) :
+                        video.update({
+                            "upName" : upName,
+                            "upFace" : upFace,
+                            "upSign" : upSign,
+                            "index" : (i - 1) * 30 + idx,
+                            "total" : totalPage - 1
+                        })
+                        yield video
+                        #yield from self.parseByAv(
+                        #    'https://www.bilibili.com/video/av{}'.format(video['aid'])
+                        #)
         else :
             yield from self.parseByAv(self.start_url)
 
@@ -68,7 +85,6 @@ class Spider() :
             item['page'] = page['page']
             item['referer'] = {"Referer" : next_url}
             yield from self.downloadUrlParse(next_url, deepcopy(item))
-        
 
     def downloadUrlParse(self, url, Item) :
 

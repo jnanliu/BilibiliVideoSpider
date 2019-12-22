@@ -1,0 +1,30 @@
+QWidget {
+    background-color: white;
+}
+
+QPushButton {
+    border-radius: 2px;
+    background: white;
+}
+
+QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+QProgressBar::chunk {
+    background-color: #05B8CC;
+    width: 20px;
+}
+
+QLabel#downloadSizeLabel {
+    font-size: 10px;
+}
+
+QLabel#remainTimeLabel {
+    font-size: 10px;
+}
+
+QLabel#speedLabel {
+    font-size: 10px;
+}

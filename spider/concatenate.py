@@ -8,7 +8,6 @@ def VideoCat(dirname, SavePath) :
     '''
     combine videos
     '''
-
     files = os.listdir(dirname)
     files = natsort.natsorted(files)
     videos, videoPaths = [], []

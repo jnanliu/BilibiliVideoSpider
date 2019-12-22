@@ -1,0 +1,101 @@
+QPushButton#closePushButton {
+    background: #F76677;
+    border-radius: 6px;
+}
+
+QPushButton#closePushButton:hover {
+    background: red;
+}
+
+QPushButton#smallerPushButton {
+    background: #6DDF6D;
+    border-radius: 6px;
+}
+
+QPushButton#smallerPushButton:hover {
+    background: green;
+}
+
+QPushButton#AVPpushButton {
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+QPushButton#AVPpushButton:hover {
+    border-left:4px solid rgb(243, 239, 17);
+    font-weight:700;
+}
+
+QPushButton#UPPushButton {
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+QPushButton#UPPushButton:hover {
+    border-left:4px solid rgb(243, 100, 17);
+    font-weight:700;
+}
+
+QPushButton#AboutPushButton {
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+QPushButton#AboutPushButton:hover {
+    border-left: 4px solid rgb(131, 7, 168);
+    font-weight: 700;
+}
+
+QLineEdit{
+    border: none;
+    color: black;
+    width:300px;
+    border-radius:10px;
+    padding:2px 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+}
+
+QTextEdit {
+    border: none;
+    color: black;
+    width:300px;
+    border-radius:10px;
+    padding:2px 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+}
+
+QLabel{
+    color: black;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+QWidget#leftWidget {
+    background-color: black;
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    border-left:1px solid gray;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+}
+
+QWidget#rightWidget {
+    background-color: gray;
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    border-right:1px solid gray;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}

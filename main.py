@@ -1,60 +1,57 @@
-# -*- coding: utf-8 -*-
+# -*- coding : utf-8 -*-
+
 import os
-import json
-import time
-import subprocess
-import requests
-import logging
-from threading import Lock
-from concurrent.futures import ThreadPoolExecutor, wait
-from pyquery import PyQuery as pq
-from download import Downloaer
-from spider import Spider
-from process import Process
-from concatenate import VideoCat
+import sys
 
-from settings import CONCURRENT_REQUESTS
+if hasattr(sys, 'frozen'):
+    os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 
-logger = logging.getLogger(__name__)
-logger.setLevel(level = logging.INFO)
-handler = logging.FileHandler("result.log")
-handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+from PyQt5.QtCore import * 
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(BASE_DIR)
+
+from view.MainWindow.mainwindow import MainWindow
+from view.DownloadInformationWindow.downloadinformationwindow import DownloadInformationWindow
+
+class SplashPanel(QSplashScreen):
+    def __init__(self):
+        super(SplashPanel, self).__init__()
+        self.setWindowOpacity(0.9)
+        image = QPixmap("E:/Project/Python/Spider/BilibiliVideoSpider/img/loading2.gif")
+        self.setPixmap(image)
+        self.label = QLabel(self)
+        movie = QMovie("E:/Project/Python/Spider/BilibiliVideoSpider/img/loading2.gif")
+        movie.setCacheMode(QMovie.CacheAll)
+        self.label.setMovie(movie)
+        movie.start()
+        self.show()
+
+    def mousePressEvent(self, evt):
+        pass
+
+    def mouseDoubleClickEvent(self, *args, **kwargs):
+        pass
+
+    def enterEvent(self, *args, **kwargs):
+        pass
+
+    def mouseMoveEvent(self, *args, **kwargs):
+        pass
 
 if __name__ == '__main__' :
-
-    modes = ['av', 'up']
-    mode = modes[int(input("请输入下载方式(以av号下载单个视频--0，下载UP主的所有投稿视频--1，输入对应的数字))："))]
-    number = input("请输入av号或UP主的ID：")
-    type = int(input("请输入下载画质(0为最高，数字越大画质越低)："))
-
-    spider = Spider(mode, number, type)
-    session = requests.Session()
-    pool = ThreadPoolExecutor(max_workers=CONCURRENT_REQUESTS)
-    startTime = time.time()
-    for item in spider.parse() :
-
-        process = Process(item)
-        for (vPath, vUrl, aPath, aUrl, cUrl, cPath) in process() :
-            videodownloader = Downloaer(vUrl, vPath, 1, 
-                item['referer'],
-                session
-            )
-            pool.submit(videodownloader, logger)
-            if aUrl != None :
-                audiodownloader = Downloaer(aUrl, aPath, 1, 
-                    item['referer'],
-                    session
-                )
-                pool.submit(audiodownloader, logger)
-            with open(cPath, 'wb+') as f :
-                f.write(requests.get(cUrl).content)
-            time.sleep(2)
-    pool.shutdown(wait=True)
-    with open("result.log", 'w') as f :
-        f.write("共花时间 %s" % time.time() - startTime)
-    
-    
-
+    app = QApplication(sys.argv)
+    splash = SplashPanel()
+    ui = MainWindow()
+    delayTime = 3
+    timer = QElapsedTimer()
+    timer.start()
+    while timer.elapsed() < (delayTime * 1000) :
+        app.processEvents()
+    ui.AVLineEdit.setText("77105854")
+    ui.uidLineEdit.setText("20351272")
+    ui.show()
+    splash.finish(ui)
+    sys.exit(app.exec_())
