@@ -19,4 +19,4 @@ python main.py
 
 演示：
 
-![](BilibiliVideoSpider/img/演示.gif)
+![](img/演示.gif)
